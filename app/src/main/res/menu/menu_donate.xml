@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/settings"
-        android:onClick="Settings"
-        android:title="Settings"
+        android:id="@+id/donate"
+        android:onClick="donate"
+        android:title="Donate"
         />
     <item android:title="Report"
         android:onClick="Report"
         android:id="@+id/report"/>
+    <item android:title="Reset"
+        android:onClick="Reset"
+        android:id="@+id/Reset"/>
 </menu>

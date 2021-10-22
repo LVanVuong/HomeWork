@@ -16,7 +16,7 @@ public class DonationApp extends Application {
             dbManger.add(donation);
             totalDonated +=donation.amount;
         }else {
-            Toast.makeText(this,"Target Exceeded",Toast.LENGTH_LONG).show();    
+            Toast.makeText(this,"Target Exceeded",Toast.LENGTH_LONG).show();
         }
         return targetAchieved;
     }

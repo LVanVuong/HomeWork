@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.homework.Activity.Base;
 import com.example.homework.Model.Donation;
 
 import java.util.ArrayList;
