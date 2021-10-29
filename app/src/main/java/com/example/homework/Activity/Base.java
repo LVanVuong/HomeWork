@@ -1,15 +1,16 @@
 package com.example.homework.Activity;
 
+import static com.example.homework.Activity.MainActivity.textTotal;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.service.voice.VoiceInteractionSession;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.homework.DonationApp;
+import com.example.homework.Main.DonationApp;
 import com.example.homework.R;
 
 public class Base extends AppCompatActivity {
@@ -67,5 +68,9 @@ public class Base extends AppCompatActivity {
     public  void  donate(MenuItem menuItem){
         startActivity(new Intent(this, MainActivity.class));
     }
-    public void reset(MenuItem menuItem){}
+    public void reset(MenuItem menuItem){
+        donationApp.dbManger.reset();
+        donationApp.totalDonated = 0;
+        textTotal.setText(donationApp.totalDonated + "$");
+    }
 }

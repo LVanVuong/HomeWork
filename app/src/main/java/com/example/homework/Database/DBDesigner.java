@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBDesigner extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "dotations.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_CREATE_TABLE_DONATION = "create table dontions"
+    private static final String DATABASE_CREATE_TABLE_DONATION = "create table donations"
             + "(id integer primary key autoincrement,"
             + "amount  integer not null,"
             + "method text not null)";

@@ -1,4 +1,4 @@
-package com.example.homework;
+package com.example.homework.Main;
 
 import android.app.Application;
 import android.widget.Toast;

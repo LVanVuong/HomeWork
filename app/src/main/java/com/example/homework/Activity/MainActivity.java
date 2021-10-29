@@ -15,9 +15,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.homework.Model.Donation;
 import com.example.homework.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Base {
     TextView donateTitle, donateSubTitle;
     Button donateButton;
     NumberPicker amountPicker;
@@ -25,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton PayPal, Direct;
     ProgressBar progressBar;
     EditText amount;
-    TextView textTotal;
-    private int totalDonted = 0;
+    public static TextView textTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,18 +46,19 @@ public class MainActivity extends AppCompatActivity {
         donateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int amount = amountPicker.getValue();
-                int radioId = paymentMethod.getCheckedRadioButtonId();
-                String method = "";
-                if (radioId == R.id.PayPal) {
-                    method = "PayPal";
-                } else {
-                    method = "Direct";
+                String method  = paymentMethod.getCheckedRadioButtonId() == R.id.PayPal?"PayPay" : "Driect";
+                int donationAmount = amountPicker.getValue();
+                if(donationAmount == 0){
+                    String text = amount.getText().toString();
+                    if(!text.equals("")){
+                        donationAmount = Integer.parseInt(text);
+                    }
+                } else if(donationAmount >0){
+                    donationApp.newDonation(new Donation(donationAmount,method));
+                    progressBar.setProgress(donationApp.totalDonated);
+                    String totalDonateStr =  donationApp.totalDonated + "$";
+                    textTotal.setText(totalDonateStr);
                 }
-                totalDonted += amountPicker.getValue();
-                textTotal.setText(totalDonted + "$");
-                progressBar.setProgress(totalDonted);
-                Toast.makeText(MainActivity.this, String.valueOf(amountPicker.getValue()) + " " + method, Toast.LENGTH_LONG).show();
             }
         });
     }

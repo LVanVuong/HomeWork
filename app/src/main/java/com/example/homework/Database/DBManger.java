@@ -32,7 +32,7 @@ public class DBManger {
     }
     public List<Donation> getAll(){
         List<Donation> mDonations= new ArrayList<Donation>();
-        Cursor cursor = database.rawQuery("SELECT * FROM dontions",null);
+        Cursor cursor = database.rawQuery("SELECT * FROM donations",null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             Donation mdonation = toDonation(cursor);
@@ -53,7 +53,7 @@ public class DBManger {
         Cursor mCursor = database.rawQuery("SELECT SUM(amount) FROM donations",null );
         mCursor.moveToFirst();
         if(!mCursor.isAfterLast()){
-            base.app.totalDonated = mCursor.getInt(0);
+            base.donationApp.totalDonated = mCursor.getInt(0);
         }
     }
     public void reset(){

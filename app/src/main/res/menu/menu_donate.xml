@@ -6,9 +6,9 @@
         android:title="Donate"
         />
     <item android:title="Report"
-        android:onClick="Report"
+        android:onClick="report"
         android:id="@+id/report"/>
     <item android:title="Reset"
-        android:onClick="Reset"
+        android:onClick="reset"
         android:id="@+id/Reset"/>
 </menu>
